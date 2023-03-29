@@ -1,5 +1,17 @@
 // For using Pi-Hole without DHCP server capabilities
 
+variable "path" {
+    description = "Path to terraform/pihole"
+    type = string
+    default = "/absolute/path/to/terraform/pihole"
+}
+
+variable "timezone" {
+    description = "Timezone where the target hardware is located"
+    type = string
+    default = "America/Chicago"
+}
+
 terraform {
   required_providers {
     docker = {
@@ -38,16 +50,16 @@ resource "docker_container" "pihole" {
     }
 
     env = [
-        "TZ=America/Chicago",
+        "TZ=${var.timezone}",
         "WEBPASSWORD=VerySecurePassword1234!"
     ]
 
     volumes {
-        host_path = "/abs/path/to/etc-pihole"
+        host_path = "${var.path}/etc-pihole"
         container_path = "/etc/pihole"
     }
     volumes {
-        host_path = "/abs/path/to/etc-dnsmasq.d"
+        host_path = "${var.path}/etc-dnsmasq.d"
         container_path = "/etc/dnsmasq.d"
     }
 }
