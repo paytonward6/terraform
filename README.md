@@ -1,7 +1,12 @@
 # Terraform Configurations
 
 ## Installation
-Refer to [Install Docker Engine](https://docs.docker.com/engine/install/) for instructions on how to install the Docker Engine for your target hardware.
+
+### Terraform
+Refer to [Install Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on how to install Terraform.
+
+### Docker
+Refer to [Install Docker Engine](https://docs.docker.com/engine/install/) for instructions on how to install the Docker Engine.
 
 ### Clone Repository
 
